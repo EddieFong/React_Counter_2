@@ -3,23 +3,28 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {number : 0}
+
+  changeNumberPlus = () => {
+    this.setState({number: this.state.number + 1})
+  }
+
+  changeNumberMinus = () => {
+    this.setState({number: this.state.number - 1})
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <button onClick = {this.changeNumberMinus}>
+          -
+        </button>
+        <span>
+          number: {this.state.number}
+        </span>
+        <button onClick = {this.changeNumberPlus}>
+          +
+        </button>
       </div>
     );
   }
